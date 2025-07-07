@@ -10,12 +10,12 @@
     <ScrollView>
         <VerticalStackLayout Padding="10"
                              Spacing="15">
-            <Entry x:Name="text"
+            <Entry Text="{Binding Text}"
                    Placeholder="Bitte Namen eingeben" />
 
             <Button Text="Dann hier klicken"
                     Command="{Binding SayHelloCommand}"
-                    CommandParameter="{Binding Source={x:Reference text}, Path=Text}" />
+                    />
 
             <Label Margin="0, 20, 0, 0"
                    Text="{Binding Message}" />

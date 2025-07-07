@@ -16,8 +16,10 @@ namespace Schroedinger.MauiCommands.ViewModel
         {
             SayHelloCommand = new Command<string>(
                 (_) => Message = $"Hallo {Text}",
-                (_) => !String.IsNullOrEmpty(Text));
+                (_) => !String.IsNullOrEmpty(Text)
+            );
         }
+
 
         #endregion
 
@@ -41,7 +43,11 @@ namespace Schroedinger.MauiCommands.ViewModel
         public string? Text
         {
             get => _text;
-            set => SetProperty(ref _text, value);
+            set 
+            {
+                SetProperty(ref _text, value);
+                SayHelloCommand.ChangeCanExecute();
+            }
         }
         #endregion
 
