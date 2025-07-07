@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Schroedinger.MauiCommands.ViewModel"
+             x:Class="Schroedinger.MauiCommands.View.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10"
+                             Spacing="15">
+            <Entry x:Name="text"
+                   Placeholder="Bitte Namen eingeben" />
+
+            <Button Text="Dann hier klicken"
+                    Command="{Binding SayHelloCommand}"
+                    CommandParameter="{Binding Source={x:Reference text}, Path=Text}" />
+
+            <Label Margin="0, 20, 0, 0"
+                   Text="{Binding Message}" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
